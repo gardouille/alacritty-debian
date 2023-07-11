@@ -9,7 +9,8 @@ If you have [Docker](https://www.docker.com/) installed locally, just run the fo
 ```bash
 user@hostname$ ./build.sh
 ```
-By default this will build alacritty v0.12.2 on Debian Bookworm.
+By default this will build latest version of Alacritty on Debian Bookworm.
+See `build.sh` for the command that get Alacritty's version.
 
 If you want to customize the build at runtime, use the following:
 

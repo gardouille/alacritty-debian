@@ -4,7 +4,9 @@ set -eu
 
 IMAGE="debian:bookworm-slim"
 TARGET="$(dirname "$0" | xargs realpath)"
-VERSION="v0.12.2"
+ALACRITTY_PROJECT_URL="https://github.com/alacritty/alacritty"
+#VERSION="v0.12.2"
+VERSION=$(wget --quiet "${ALACRITTY_PROJECT_URL}/tags.atom" --output-document=- | awk --assign pattern="${ALACRITTY_PROJECT_URL}/releases/tag/" --field-separator "/" '$0~pattern { print $9; exit }' | sed 's/\(.*\)"/\1/')
 
 while getopts "v:i:h" opt
 do
